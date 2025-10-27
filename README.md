@@ -16,3 +16,9 @@ start script:
 ```bash
 yarn start
 ```
+
+lint code:
+```bash
+yarn lint
+yarn lint:fix
+```
