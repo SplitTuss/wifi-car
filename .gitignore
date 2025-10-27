@@ -1,0 +1,7 @@
+# dependency ignores
+node_modules/
+# yarn ignores
+yarn-debug.log*
+yarn-error.log*
+# mac ignores
+.DS_Store
