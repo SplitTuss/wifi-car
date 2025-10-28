@@ -1,5 +1,10 @@
 # Arduino Car
-a simple car made with `HUZZAH Feather ESP8266` and TypeScript
+a simple car made with `Arduino Nano 33 BLE` and TypeScript
+
+## board setup
+From Arduino IDE make sure you select the right board and port, then upload `StandardFirmataPlus`.
+
+Make sure you select compatible pins for the `PWM` and `dir` (direction).
 
 ## quickstart
 make sure you're using the right version of JavaScript:
