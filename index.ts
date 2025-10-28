@@ -32,14 +32,23 @@ board.on('ready', () => {
         break;
       case 'down':
         led.fadeOut();
-        motorRight.isOn ? motorRight.stop() : motorRight.rev(255);
-        motorLeft.isOn ? motorLeft.stop() : motorLeft.rev(255);
+        if (motorLeft.isOn || motorRight.isOn) {
+          motorLeft.stop();
+          motorRight.stop();
+        } else {
+          motorLeft.rev(255);
+          motorRight.rev(255);
+        }
         break;
       case 'left':
         led.blink(500);
+        motorLeft.stop();
+        motorRight.fwd(255);
         break;
       case 'right':
         led.strobe(300);
+        motorLeft.fwd(255);
+        motorRight.stop();
         break;
       default:
         console.log('key not recognized');
