@@ -15,6 +15,7 @@ export default [
     plugins: { prettier },
     rules: {
       'prettier/prettier': 'error',
+      '@typescript-eslint/no-unused-expressions': 'off',
     },
   },
 ];
