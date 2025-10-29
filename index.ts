@@ -27,8 +27,8 @@ board.on('ready', () => {
     switch (key.name) {
       case 'up':
         led.fadeIn();
-        motorRight.fwd(255);
-        motorLeft.fwd(255);
+        motorRight.fwd(100);
+        motorLeft.fwd(100);
         break;
       case 'down':
         led.fadeOut();
@@ -36,18 +36,18 @@ board.on('ready', () => {
           motorLeft.stop();
           motorRight.stop();
         } else {
-          motorLeft.rev(255);
-          motorRight.rev(255);
+          motorLeft.rev(150);
+          motorRight.rev(150);
         }
         break;
       case 'left':
         led.blink(500);
         motorLeft.stop();
-        motorRight.fwd(255);
+        motorRight.fwd(100);
         break;
       case 'right':
         led.strobe(300);
-        motorLeft.fwd(255);
+        motorLeft.fwd(100);
         motorRight.stop();
         break;
       default:
