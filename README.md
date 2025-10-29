@@ -4,7 +4,9 @@ a simple car made with `Arduino Nano 33 BLE` and TypeScript
 ## board setup
 From Arduino IDE make sure you select the right board and port, then upload `StandardFirmataPlus`.
 
-Make sure you select compatible pins for the `PWM` and `dir` (direction).
+Make sure you select compatible pins for the `PWM` and `dir` (direction):
+
+<img src='./images/circuit-diagram.png' height='auto' width='800px'>
 
 ## quickstart
 make sure you're using the right version of JavaScript:
