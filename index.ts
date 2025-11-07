@@ -42,13 +42,13 @@ board.on('ready', () => {
         break;
       case 'left':
         led.blink(500);
-        motorLeft.stop();
-        motorRight.fwd(100);
+        motorLeft.rev(150);
+        motorRight.fwd(150);
         break;
       case 'right':
         led.strobe(300);
-        motorLeft.fwd(100);
-        motorRight.stop();
+        motorLeft.fwd(150);
+        motorRight.rev(150);
         break;
       default:
         console.log('key not recognized');
