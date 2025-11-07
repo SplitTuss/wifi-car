@@ -5,3 +5,5 @@ yarn-debug.log*
 yarn-error.log*
 # mac ignores
 .DS_Store
+# environment
+.env
