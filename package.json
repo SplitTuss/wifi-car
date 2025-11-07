@@ -1,10 +1,10 @@
 {
   "name": "arduino-car",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "tsx index.ts",
+    "start": "tsx src/index.ts",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
