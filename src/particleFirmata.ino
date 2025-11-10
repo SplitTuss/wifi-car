@@ -34,6 +34,14 @@
 
   #include "application.h"
 
+  /**
+   * NOTE: if you change the motor pins in the ts script, you need to adjust these values
+   */
+  #define MOTOR_LEFT_PWM 0
+  #define MOTOR_LEFT_DIR 5
+  #define MOTOR_RIGHT_PWM 1
+  #define MOTOR_RIGHT_DIR 6
+
   #define DEBUG 0
   #define PORT 48879
   #define MAX_DATA_BYTES 128
@@ -554,6 +562,13 @@
         servos[i].detach();
       }
     }
+
+    // PATCH: Stop all motors by setting PWM pins to 0 before restoring
+    // Set motor PWM pins to 0 (LOW) to prevent motors from turning on
+    analogWrite(MOTOR_LEFT_PWM, 0);
+    analogWrite(MOTOR_RIGHT_PWM, 0);
+    digitalWrite(MOTOR_LEFT_DIR, LOW);
+    digitalWrite(MOTOR_RIGHT_DIR, LOW);
   
     // Restore defaults.
     for (int i = 0; i < 8; i++) {
@@ -563,9 +578,14 @@
       pinModeFor[i] = 1;
       pinModeFor[i + 10] = 0;
     }
+
+    // Ensure motor pins stay LOW after pinMode is set
+    analogWrite(MOTOR_LEFT_PWM, 0);
+    analogWrite(MOTOR_RIGHT_PWM, 0);
+    digitalWrite(MOTOR_LEFT_DIR, LOW);
+    digitalWrite(MOTOR_RIGHT_DIR, LOW);
   }
-  
-  
+
   void processInput() {
     int pin, mode, val, address, reg, delayTime, dataLength;
     int byteCount = bytesRead;
