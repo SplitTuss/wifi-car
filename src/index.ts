@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { Board, Led } from 'johnny-five';
+import { Board, Led, Motor } from 'johnny-five';
 import Photon from 'particle-io';
 import keypress from 'keypress';
 
@@ -15,20 +15,20 @@ const board = new Board({
 board.on('ready', () => {
   const led = new Led('D7');
 
-  // const motorLeft = new Motor({
-  //   pins: {
-  //     pwm: 3,
-  //     dir: 12,
-  //   },
-  //   invertPWM: true,
-  // });
-  // const motorRight = new Motor({
-  //   pins: {
-  //     pwm: 4,
-  //     dir: 8,
-  //   },
-  //   invertPWM: true,
-  // });
+  const motorLeft = new Motor({
+    pins: {
+      pwm: 0,
+      dir: 5,
+    },
+    invertPWM: true,
+  });
+  const motorRight = new Motor({
+    pins: {
+      pwm: 1,
+      dir: 6,
+    },
+    invertPWM: true,
+  });
 
   keypress(process.stdin);
 
@@ -37,32 +37,34 @@ board.on('ready', () => {
       case 'up':
         led.stop();
         led.on();
-        // motorRight.fwd(100);
-        // motorLeft.fwd(100);
+        motorRight.fwd(150);
+        motorLeft.fwd(150);
         break;
       case 'down':
         led.stop();
         led.off();
-        // if (motorLeft.isOn || motorRight.isOn) {
-        //   motorLeft.stop();
-        //   motorRight.stop();
-        // } else {
-        //   motorLeft.rev(150);
-        //   motorRight.rev(150);
-        // }
+        if (motorLeft.isOn || motorRight.isOn) {
+          motorLeft.stop();
+          motorRight.stop();
+        } else {
+          motorLeft.rev(150);
+          motorRight.rev(150);
+        }
         break;
       case 'left':
         led.stop();
         led.blink(500);
-        // motorLeft.rev(150);
-        // motorRight.fwd(150);
+        motorLeft.rev(150);
+        motorRight.fwd(250);
         break;
       case 'right':
         led.stop();
         led.strobe(300);
-        // motorLeft.fwd(150);
-        // motorRight.rev(150);
+        motorLeft.fwd(250);
+        motorRight.rev(150);
         break;
+      case 'escape':
+        process.exit(0);
       default:
         console.log('key not recognized');
     }
