@@ -35,6 +35,33 @@ board.on('ready', () => {
     motorRight.stop();
   };
 
+  const goForward = () => {
+    stopMotors();
+    motorRight.fwd(150);
+    motorLeft.fwd(150);
+  };
+
+  const stopOrReverse = () => {
+    if (motorLeft.isOn || motorRight.isOn) {
+      stopMotors();
+    } else {
+      motorLeft.rev(150);
+      motorRight.rev(150);
+    }
+  };
+
+  const turnLeft = () => {
+    stopMotors();
+    motorLeft.rev(150);
+    motorRight.fwd(250);
+  };
+
+  const turnRight = () => {
+    stopMotors();
+    motorLeft.fwd(250);
+    motorRight.rev(150);
+  };
+
   keypress(process.stdin);
 
   process.stdin.on('keypress', (_, key) => {
@@ -42,30 +69,22 @@ board.on('ready', () => {
       case 'up':
         led.stop();
         led.on();
-        motorRight.fwd(150);
-        motorLeft.fwd(150);
+        goForward();
         break;
       case 'down':
         led.stop();
         led.off();
-        if (motorLeft.isOn || motorRight.isOn) {
-          stopMotors();
-        } else {
-          motorLeft.rev(150);
-          motorRight.rev(150);
-        }
+        stopOrReverse();
         break;
       case 'left':
         led.stop();
         led.blink(500);
-        motorLeft.rev(150);
-        motorRight.fwd(250);
+        turnLeft();
         break;
       case 'right':
         led.stop();
         led.strobe(300);
-        motorLeft.fwd(250);
-        motorRight.rev(150);
+        turnRight();
         break;
       case 'escape':
         process.exit(0);
