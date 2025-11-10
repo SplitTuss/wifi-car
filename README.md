@@ -6,7 +6,7 @@ From Arduino IDE make sure you select the right board and port, then upload `Sta
 
 Make sure you select compatible pins for the `PWM` and `dir` (direction):
 
-<img src='./images/circuit-diagram.png' height='auto' width='800px'>
+<img src='./images/arduinoNanoCircuitDiagram.png' height='auto' width='900px'>
 
 ## Particle Photon setup (WiFi)
 1. setup your particle device on your WiFi: https://setup.particle.io/
@@ -16,6 +16,8 @@ Make sure you select compatible pins for the `PWM` and `dir` (direction):
 5. create a `.env` from `.env.example` and fill it out with the following
 6. get your "Device ID" from the "Devices" tab in Particle Build
 7. create a Particle Token: https://docs.particle.io/reference/cloud-apis/access-tokens/#getting-a-user-access-token
+
+<img src='./images/particlePhotonCircuitDiagram.png' height='auto' width='900px'>
 
 ## Quickstart
 make sure you're using the right version of JavaScript:
