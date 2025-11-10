@@ -30,6 +30,11 @@ board.on('ready', () => {
     invertPWM: true,
   });
 
+  const stopMotors = () => {
+    motorLeft.stop();
+    motorRight.stop();
+  };
+
   keypress(process.stdin);
 
   process.stdin.on('keypress', (_, key) => {
@@ -44,8 +49,7 @@ board.on('ready', () => {
         led.stop();
         led.off();
         if (motorLeft.isOn || motorRight.isOn) {
-          motorLeft.stop();
-          motorRight.stop();
+          stopMotors();
         } else {
           motorLeft.rev(150);
           motorRight.rev(150);
