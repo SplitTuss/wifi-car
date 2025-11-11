@@ -1,4 +1,4 @@
-# Arduino Car
+# WiFi Car
 A simple car made with `Arduino Nano 33 BLE` or `Particle Photon` and TypeScript
 
 ## Arduino Nano 33 BLE setup (wired)
