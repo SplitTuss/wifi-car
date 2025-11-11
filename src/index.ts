@@ -52,14 +52,14 @@ board.on('ready', () => {
 
   const turnLeft = () => {
     stopMotors();
-    motorLeft.rev(150);
+    motorLeft.rev(250);
     motorRight.fwd(250);
   };
 
   const turnRight = () => {
     stopMotors();
     motorLeft.fwd(250);
-    motorRight.rev(150);
+    motorRight.rev(250);
   };
 
   keypress(process.stdin);
