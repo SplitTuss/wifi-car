@@ -1,5 +1,5 @@
 # WiFi Car
-A simple car made with `Arduino Nano 33 BLE` or `Particle Photon` and TypeScript
+A simple car made with `Arduino Nano 33 BLE` or `Particle Photon` and [Johnny-Five](https://johnny-five.io/)
 
 ## Arduino Nano 33 BLE setup (wired)
 From Arduino IDE make sure you select the right board and port, then upload `StandardFirmataPlus`.
