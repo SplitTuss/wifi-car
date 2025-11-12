@@ -1,7 +1,7 @@
 # WiFi Car
 A simple car made with `Arduino Nano 33 BLE` or `Particle Photon` and [Johnny-Five](https://johnny-five.io/)
 
-<img src='./images/WiFi-Car.gif' height='400px' width='auto' />
+<img src='./images/WiFi-Car.gif' height='400px' width='auto' alt='gif loading...' />
 
 ## Arduino Nano 33 BLE setup (wired)
 From Arduino IDE make sure you select the right board and port, then upload `StandardFirmataPlus`.
